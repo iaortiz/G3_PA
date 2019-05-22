@@ -24,7 +24,6 @@ public class RegistroJugador extends javax.swing.JFrame {
      */
     public RegistroJugador() {
         initComponents();
-        this.jLabel10.setVisible(false);
         this.jLabel11.setVisible(false);
     }
 
@@ -52,15 +51,14 @@ public class RegistroJugador extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jTextFieldNick = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextFieldNivel = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jTextFieldContraseña = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextFieldPosicion = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jPasswordFieldConfirmar = new javax.swing.JPasswordField();
+        jComboBoxNivel = new javax.swing.JComboBox<>();
+        jComboBoxPosicion = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -178,13 +176,6 @@ public class RegistroJugador extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("Nivel Clasificatoria:");
 
-        jTextFieldNivel.setEnabled(false);
-        jTextFieldNivel.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextFieldNivelKeyReleased(evt);
-            }
-        });
-
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel7.setText("Contraseña:");
 
@@ -198,15 +189,8 @@ public class RegistroJugador extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setText("Posicion:");
 
-        jTextFieldPosicion.setEnabled(false);
-
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel9.setText("Confirmar Contraseña:");
-
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel10.setText("* Solo se puede Ingresar Numeros");
-        jLabel10.setOpaque(true);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 0, 0));
@@ -220,6 +204,22 @@ public class RegistroJugador extends javax.swing.JFrame {
         jPasswordFieldConfirmar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jPasswordFieldConfirmarKeyReleased(evt);
+            }
+        });
+
+        jComboBoxNivel.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jComboBoxNivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hierro", "Bronce", "Plata", "Oro", "Platino", "Diamante", "Maestro", "Gran Maestro", "Retador" }));
+        jComboBoxNivel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxNivelActionPerformed(evt);
+            }
+        });
+
+        jComboBoxPosicion.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        jComboBoxPosicion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Top", "Jungla", "Mid", "ADCarry", "Support" }));
+        jComboBoxPosicion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxPosicionActionPerformed(evt);
             }
         });
 
@@ -239,22 +239,18 @@ public class RegistroJugador extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextFieldNivel))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextFieldNick, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel10))
+                                .addComponent(jComboBoxNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldNick, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldPosicion, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 52, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jComboBoxPosicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 233, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
@@ -271,9 +267,8 @@ public class RegistroJugador extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextFieldNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
-                .addGap(18, 18, 18)
+                    .addComponent(jComboBoxNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jPasswordFieldConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -287,8 +282,8 @@ public class RegistroJugador extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
-                            .addComponent(jTextFieldPosicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(22, Short.MAX_VALUE))
+                            .addComponent(jComboBoxPosicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -310,7 +305,7 @@ public class RegistroJugador extends javax.swing.JFrame {
                         .addComponent(jButton1)
                         .addGap(26, 26, 26)
                         .addComponent(jButton2)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -345,8 +340,8 @@ public class RegistroJugador extends javax.swing.JFrame {
         this.jPasswordFieldConfirmar.setEnabled(true);
         this.jTextFieldContraseña.setEnabled(true);
         this.jTextFieldNick.setEnabled(true);
-        this.jTextFieldNivel.setEnabled(true);
-        this.jTextFieldPosicion.setEnabled(true);
+        this.jComboBoxNivel.setEnabled(true);
+        this.jComboBoxPosicion.setEnabled(true);
         this.jTextFieldNombres.setEnabled(true);
     }//GEN-LAST:event_jButtonValidarActionPerformed
 
@@ -361,8 +356,8 @@ public class RegistroJugador extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         String nickname = this.jTextFieldNick.getText();
-        String nivelClasificatoria = this.jTextFieldNivel.getText();
-        String posicion = this.jTextFieldPosicion.getText();
+        String nivelClasificatoria = this.jComboBoxNivel.getSelectedItem().toString();
+        String posicion = this.jComboBoxPosicion.getSelectedItem().toString();
         String cedula = this.jTextFieldCedula.getText();
         String nombres = this.jTextFieldNombres.getText();
         String apellidos = this.jTextFieldApellidos.getText();
@@ -372,8 +367,6 @@ public class RegistroJugador extends javax.swing.JFrame {
         
         // Limpiar JTEXT
         this.jTextFieldNick.setText("");
-        this.jTextFieldNivel.setText("");
-        this.jTextFieldPosicion.setText("");
         this.jTextFieldCedula.setText("");
         this.jTextFieldNombres.setText("");
         this.jTextFieldApellidos.setText("");
@@ -383,8 +376,8 @@ public class RegistroJugador extends javax.swing.JFrame {
         this.jPasswordFieldConfirmar.setEnabled(false);
         this.jTextFieldContraseña.setEnabled(false);
         this.jTextFieldNick.setEnabled(false);
-        this.jTextFieldNivel.setEnabled(false);
-        this.jTextFieldPosicion.setEnabled(false);
+        this.jComboBoxNivel.setEnabled(false);
+        this.jComboBoxPosicion.setEnabled(false);
         this.jTextFieldNombres.setEnabled(false);
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -396,18 +389,6 @@ public class RegistroJugador extends javax.swing.JFrame {
     private void jTextFieldCedulaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCedulaKeyReleased
         this.jButtonValidar.setEnabled(this.jTextFieldCedula.getText().length() != 0);
     }//GEN-LAST:event_jTextFieldCedulaKeyReleased
-
-    private void jTextFieldNivelKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNivelKeyReleased
-
-        try {
-            Integer.parseInt(this.jTextFieldNivel.getText());
-//            this.jTextFieldNivel.setBorder(BorderFactory.createLineBorder(Color.black));
-                this.jLabel10.setVisible(false);
-        } catch (NumberFormatException e) {
-                this.jLabel10.setVisible(true);
-//            this.jTextFieldNivel.setBorder(BorderFactory.createLineBorder(Color.red));
-        }
-    }//GEN-LAST:event_jTextFieldNivelKeyReleased
 
     private void jPasswordFieldConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldConfirmarActionPerformed
         // TODO add your handling code here:
@@ -422,6 +403,14 @@ public class RegistroJugador extends javax.swing.JFrame {
             this.jLabel11.setVisible(true);
         }
     }//GEN-LAST:event_jPasswordFieldConfirmarKeyReleased
+
+    private void jComboBoxNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxNivelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxNivelActionPerformed
+
+    private void jComboBoxPosicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPosicionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxPosicionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -462,8 +451,9 @@ public class RegistroJugador extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonValidar;
+    private javax.swing.JComboBox<String> jComboBoxNivel;
+    private javax.swing.JComboBox<String> jComboBoxPosicion;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -480,8 +470,6 @@ public class RegistroJugador extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldCedula;
     private javax.swing.JTextField jTextFieldContraseña;
     private javax.swing.JTextField jTextFieldNick;
-    private javax.swing.JTextField jTextFieldNivel;
     private javax.swing.JTextField jTextFieldNombres;
-    private javax.swing.JTextField jTextFieldPosicion;
     // End of variables declaration//GEN-END:variables
 }
