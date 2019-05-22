@@ -8,8 +8,8 @@ package interfaz;
 import Clases.Registro;
 import Clases.Jugador;
 import Data.ImportJugador;
-import Logica.LogAsistencia;
-import Logica.LogLogin;
+import Logica.LogJugador;
+import Logica.LogRegistro;
 import java.util.Date;
 
 /**
@@ -18,8 +18,9 @@ import java.util.Date;
  */
 public class RegistrarAsistencia extends javax.swing.JFrame {
 
-    Registro ObjAsistencia = new Registro();
-    LogAsistencia ObjLogAsistencia = new LogAsistencia();
+    Registro ObjRegistro = new Registro();
+    LogRegistro ObjLogAsistencia = new LogRegistro();
+    LogJugador ObjLogJugador = new LogJugador();
 
     /**
      * Creates new form RegistrarAistencia
@@ -40,7 +41,7 @@ public class RegistrarAsistencia extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextCedula = new javax.swing.JTextField();
+        jTextFieldCedula = new javax.swing.JTextField();
         jButtonValidar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jTextFieldNombres = new javax.swing.JTextField();
@@ -66,14 +67,14 @@ public class RegistrarAsistencia extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Cedula: ");
 
-        jTextCedula.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldCedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextCedulaActionPerformed(evt);
+                jTextFieldCedulaActionPerformed(evt);
             }
         });
-        jTextCedula.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextFieldCedula.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextCedulaKeyReleased(evt);
+                jTextFieldCedulaKeyReleased(evt);
             }
         });
 
@@ -130,7 +131,7 @@ public class RegistrarAsistencia extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButtonValidar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -162,7 +163,7 @@ public class RegistrarAsistencia extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonValidar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -235,18 +236,18 @@ public class RegistrarAsistencia extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCedulaActionPerformed
+    private void jTextFieldCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCedulaActionPerformed
 
-    }//GEN-LAST:event_jTextCedulaActionPerformed
+    }//GEN-LAST:event_jTextFieldCedulaActionPerformed
 
-    private void jTextCedulaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextCedulaKeyReleased
-        this.jButtonValidar.setEnabled(this.jTextCedula.getText().length() != 0);
-    }//GEN-LAST:event_jTextCedulaKeyReleased
+    private void jTextFieldCedulaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCedulaKeyReleased
+        this.jButtonValidar.setEnabled(this.jTextFieldCedula.getText().length() != 0);
+    }//GEN-LAST:event_jTextFieldCedulaKeyReleased
 
     private void jButtonValidarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValidarActionPerformed
 
         ImportJugador ObjImportJugador = new ImportJugador();
-        String user = this.jTextCedula.getText();
+        String user = this.jTextFieldCedula.getText();
         Jugador ObjJugador;
         try {
             ObjJugador = ObjImportJugador.Import_Jugador(user);
@@ -286,8 +287,17 @@ public class RegistrarAsistencia extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        ImportJugador ObjImportJugador = new ImportJugador();
+        String user = this.jTextFieldCedula.getText();
+        Jugador ObjJugador = ObjImportJugador.Import_Jugador(user);
+        
         Date fecha = new Date();
-        ObjAsistencia = ObjLogAsistencia.crearAsistencia(fecha);
+        ObjRegistro = ObjLogAsistencia.crearRegistro(fecha);
+        ObjLogJugador.AgregarRegistro(ObjRegistro, ObjJugador);
+        
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -338,8 +348,8 @@ public class RegistrarAsistencia extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextCedula;
     private javax.swing.JTextField jTextFieldApellidos;
+    private javax.swing.JTextField jTextFieldCedula;
     private javax.swing.JTextField jTextFieldNick;
     private javax.swing.JTextField jTextFieldNivel;
     private javax.swing.JTextField jTextFieldNombres;

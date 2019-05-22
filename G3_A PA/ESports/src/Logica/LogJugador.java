@@ -6,6 +6,7 @@
 package Logica;
 
 import Clases.Jugador;
+import Clases.Registro;
 
 /**
  *
@@ -16,4 +17,9 @@ public class LogJugador {
         Jugador ObjJugador = new Jugador(nickname, nivelClasificatoria, posicion, funcion, cedula, nombres, apellidos, contraseña);
         return ObjJugador;
     }
+    
+    public void AgregarRegistro(Registro ObjRegistro, Jugador ObjJugador){
+        ObjJugador.registros.add(ObjRegistro);
+    }
+
 }
