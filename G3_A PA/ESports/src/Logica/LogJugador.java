@@ -7,6 +7,7 @@ package Logica;
 
 import Clases.Jugador;
 import Clases.Registro;
+import Data.ExpJugador;
 
 /**
  *
@@ -19,7 +20,9 @@ public class LogJugador {
     }
     
     public void AgregarRegistro(Registro ObjRegistro, Jugador ObjJugador){
+        ExpJugador ObjExpJugador = new ExpJugador();
         ObjJugador.registros.add(ObjRegistro);
+        ObjExpJugador.Crear(ObjJugador);
     }
 
 }

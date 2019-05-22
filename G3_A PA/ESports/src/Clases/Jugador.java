@@ -89,5 +89,10 @@ public class Jugador extends Miembro {
         this.contraseña = contraseña;
     }
 
+    @Override
+    public String toString() {
+        return "Jugador{" + "nickname=" + nickname + ", nivelClasificatoria=" + nivelClasificatoria + ", posicion=" + posicion + ", funcion=" + funcion + ", registros=" + registros + '}';
+    }
+    
     
 }

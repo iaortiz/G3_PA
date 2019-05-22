@@ -1,1 +1,2 @@
 {"nickname":"jucaco","nivelClasificatoria":"12","posicion":"TOP","funcion":1,"registros":[],"cedula":"1105137234","nombres":"Carlos","apellidos":"Juca","contraseña":"gt7nvHmU"}
+{"nickname":"jucaco","nivelClasificatoria":"12","posicion":"TOP","funcion":1,"registros":[{"fecha":"May 22, 2019 4:25:49 PM","partidas":[]}],"cedula":"1105137234","nombres":"Carlos","apellidos":"Juca","contraseña":"gt7nvHmU"}

@@ -7,6 +7,7 @@ package interfaz;
 
 import Clases.Registro;
 import Clases.Jugador;
+import Data.ExpJugador;
 import Data.ImportJugador;
 import Logica.LogJugador;
 import Logica.LogRegistro;
@@ -291,10 +292,10 @@ public class RegistrarAsistencia extends javax.swing.JFrame {
         ImportJugador ObjImportJugador = new ImportJugador();
         String user = this.jTextFieldCedula.getText();
         Jugador ObjJugador = ObjImportJugador.Import_Jugador(user);
-        
         Date fecha = new Date();
         ObjRegistro = ObjLogAsistencia.crearRegistro(fecha);
         ObjLogJugador.AgregarRegistro(ObjRegistro, ObjJugador);
+        System.out.println(ObjJugador.toString());
         
         
         
