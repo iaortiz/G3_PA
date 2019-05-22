@@ -12,8 +12,8 @@ import java.util.Date;
  *
  * @author Carlos Juca
  */
-public class LogAsistencia {
-    public Registro crearAsistencia(Date fecha){
+public class LogRegistro {
+    public Registro crearRegistro(Date fecha){
         Registro ObjAsistencia = new Registro(fecha);
         return ObjAsistencia;
     }

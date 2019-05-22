@@ -89,7 +89,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextCedula" min="-2" pref="93" max="-2" attributes="0"/>
+                          <Component id="jTextFieldCedula" min="-2" pref="93" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jButtonValidar" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -130,7 +130,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextCedula" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldCedula" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonValidar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -169,10 +169,10 @@
             <Property name="text" type="java.lang.String" value="Cedula: "/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextCedula">
+        <Component class="javax.swing.JTextField" name="jTextFieldCedula">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextCedulaActionPerformed"/>
-            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextCedulaKeyReleased"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCedulaActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldCedulaKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonValidar">
