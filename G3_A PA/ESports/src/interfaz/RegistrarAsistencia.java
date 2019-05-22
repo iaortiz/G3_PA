@@ -5,9 +5,11 @@
  */
 package interfaz;
 
-import Clases.Asistencia;
+import Clases.Registro;
 import Clases.Jugador;
+import Data.ImportJugador;
 import Logica.LogAsistencia;
+import Logica.LogLogin;
 import java.util.Date;
 
 /**
@@ -15,9 +17,10 @@ import java.util.Date;
  * @author Carlos Juca
  */
 public class RegistrarAsistencia extends javax.swing.JFrame {
-    
-    Asistencia ObjAsistencia= new Asistencia();
+
+    Registro ObjAsistencia = new Registro();
     LogAsistencia ObjLogAsistencia = new LogAsistencia();
+
     /**
      * Creates new form RegistrarAistencia
      */
@@ -37,20 +40,20 @@ public class RegistrarAsistencia extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        txt_cedula = new javax.swing.JTextField();
-        btn_validar = new javax.swing.JButton();
+        jTextCedula = new javax.swing.JTextField();
+        jButtonValidar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        txt_nombres = new javax.swing.JTextField();
-        txt_apellidos = new javax.swing.JTextField();
+        jTextFieldNombres = new javax.swing.JTextField();
+        jTextFieldApellidos = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txt_nickName = new javax.swing.JTextField();
+        jTextFieldNick = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txt_nivClasfi = new javax.swing.JTextField();
+        jTextFieldNivel = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        txt_posicion = new javax.swing.JTextField();
-        btn_guardar = new javax.swing.JButton();
-        btn_cancelar = new javax.swing.JButton();
+        jTextFieldPosicion = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,46 +66,46 @@ public class RegistrarAsistencia extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Cedula: ");
 
-        txt_cedula.addActionListener(new java.awt.event.ActionListener() {
+        jTextCedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_cedulaActionPerformed(evt);
+                jTextCedulaActionPerformed(evt);
             }
         });
-        txt_cedula.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextCedula.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_cedulaKeyReleased(evt);
+                jTextCedulaKeyReleased(evt);
             }
         });
 
-        btn_validar.setText("Validar");
-        btn_validar.setEnabled(false);
-        btn_validar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonValidar.setText("Validar");
+        jButtonValidar.setEnabled(false);
+        jButtonValidar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_validarActionPerformed(evt);
+                jButtonValidarActionPerformed(evt);
             }
         });
-        btn_validar.addKeyListener(new java.awt.event.KeyAdapter() {
+        jButtonValidar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                btn_validarKeyReleased(evt);
+                jButtonValidarKeyReleased(evt);
             }
         });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Nombres:");
 
-        txt_nombres.setEnabled(false);
-        txt_nombres.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldNombres.setEnabled(false);
+        jTextFieldNombres.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_nombresActionPerformed(evt);
+                jTextFieldNombresActionPerformed(evt);
             }
         });
 
-        txt_apellidos.setEnabled(false);
+        jTextFieldApellidos.setEnabled(false);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel4.setText("Apellidos:");
 
-        txt_nickName.setEnabled(false);
+        jTextFieldNick.setEnabled(false);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("NickName:");
@@ -110,12 +113,12 @@ public class RegistrarAsistencia extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("Nivel Clasificatoria:");
 
-        txt_nivClasfi.setEnabled(false);
+        jTextFieldNivel.setEnabled(false);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setText("Posicion:");
 
-        txt_posicion.setEnabled(false);
+        jTextFieldPosicion.setEnabled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -126,31 +129,31 @@ public class RegistrarAsistencia extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addGap(30, 30, 30)
-                        .addComponent(txt_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_validar))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonValidar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txt_nombres, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(65, 65, 65)
                         .addComponent(jLabel4)
                         .addGap(24, 24, 24)
-                        .addComponent(txt_apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextFieldApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                             .addComponent(jLabel6)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txt_nivClasfi))
+                            .addComponent(jTextFieldNivel))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                             .addComponent(jLabel5)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txt_nickName, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTextFieldNick, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_posicion, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextFieldPosicion, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -159,40 +162,40 @@ public class RegistrarAsistencia extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txt_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_validar))
+                    .addComponent(jTextCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonValidar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4)
-                    .addComponent(txt_nombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txt_nickName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldNick, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txt_nivClasfi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(txt_posicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldPosicion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btn_guardar.setText("Confirmar");
-        btn_guardar.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Confirmar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_guardarActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
-        btn_cancelar.setText("Cancelar");
-        btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("Cancelar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cancelarActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -210,9 +213,9 @@ public class RegistrarAsistencia extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(207, 207, 207)
-                        .addComponent(btn_guardar)
+                        .addComponent(jButton1)
                         .addGap(29, 29, 29)
-                        .addComponent(btn_cancelar)))
+                        .addComponent(jButton2)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -224,24 +227,38 @@ public class RegistrarAsistencia extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_cancelar)
-                    .addComponent(btn_guardar))
+                    .addComponent(jButton2)
+                    .addComponent(jButton1))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_cedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cedulaActionPerformed
+    private void jTextCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCedulaActionPerformed
 
-    }//GEN-LAST:event_txt_cedulaActionPerformed
+    }//GEN-LAST:event_jTextCedulaActionPerformed
 
-    private void txt_cedulaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_cedulaKeyReleased
-        this.btn_validar.setEnabled(this.txt_cedula.getText().length() != 0);
-    }//GEN-LAST:event_txt_cedulaKeyReleased
+    private void jTextCedulaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextCedulaKeyReleased
+        this.jButtonValidar.setEnabled(this.jTextCedula.getText().length() != 0);
+    }//GEN-LAST:event_jTextCedulaKeyReleased
 
-    private void btn_validarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_validarActionPerformed
-//        
+    private void jButtonValidarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValidarActionPerformed
+
+        ImportJugador ObjImportJugador = new ImportJugador();
+        String user = this.jTextCedula.getText();
+        Jugador ObjJugador;
+        try {
+            ObjJugador = ObjImportJugador.Import_Jugador(user);
+            this.jTextFieldNombres.setText(ObjJugador.getNombres());
+            this.jTextFieldApellidos.setText(ObjJugador.getApellidos());
+            this.jTextFieldNick.setText(ObjJugador.getNickname());
+            this.jTextFieldPosicion.setText(ObjJugador.getPosicion());
+        } catch (NullPointerException e) {
+            
+        }
+
+//  
 //        
 //        
 //        
@@ -254,24 +271,24 @@ public class RegistrarAsistencia extends javax.swing.JFrame {
 //                
 //                
 //                
-    }//GEN-LAST:event_btn_validarActionPerformed
+    }//GEN-LAST:event_jButtonValidarActionPerformed
 
-    private void btn_validarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btn_validarKeyReleased
+    private void jButtonValidarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonValidarKeyReleased
 
-    }//GEN-LAST:event_btn_validarKeyReleased
+    }//GEN-LAST:event_jButtonValidarKeyReleased
 
-    private void txt_nombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombresActionPerformed
+    private void jTextFieldNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombresActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_nombresActionPerformed
+    }//GEN-LAST:event_jTextFieldNombresActionPerformed
 
-    private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();
-    }//GEN-LAST:event_btn_cancelarActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Date fecha = new Date();
         ObjAsistencia = ObjLogAsistencia.crearAsistencia(fecha);
-    }//GEN-LAST:event_btn_guardarActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -310,9 +327,9 @@ public class RegistrarAsistencia extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_cancelar;
-    private javax.swing.JButton btn_guardar;
-    private javax.swing.JButton btn_validar;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonValidar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -321,11 +338,11 @@ public class RegistrarAsistencia extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txt_apellidos;
-    private javax.swing.JTextField txt_cedula;
-    private javax.swing.JTextField txt_nickName;
-    private javax.swing.JTextField txt_nivClasfi;
-    private javax.swing.JTextField txt_nombres;
-    private javax.swing.JTextField txt_posicion;
+    private javax.swing.JTextField jTextCedula;
+    private javax.swing.JTextField jTextFieldApellidos;
+    private javax.swing.JTextField jTextFieldNick;
+    private javax.swing.JTextField jTextFieldNivel;
+    private javax.swing.JTextField jTextFieldNombres;
+    private javax.swing.JTextField jTextFieldPosicion;
     // End of variables declaration//GEN-END:variables
 }

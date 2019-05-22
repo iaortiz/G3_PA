@@ -9,21 +9,20 @@ import java.util.*;
 public class Jugador extends Miembro {
 
     public String nickname;
-    public int nivelClasificatoria;
+    public String nivelClasificatoria;
     public String posicion;
     public int funcion;
-    public boolean estado;
+    public ArrayList<Registro> registros = new ArrayList<>();
 
     public Jugador() {
     }
 
-    public Jugador(String nickname, int nivelClasificatoria, String posicion, int funcion, boolean estado, String cedula, String nombres, String apellidos, String contraseña) {
+    public Jugador(String nickname, String nivelClasificatoria, String posicion, int funcion, String cedula, String nombres, String apellidos, String contraseña) {
         super(cedula, nombres, apellidos, contraseña);
         this.nickname = nickname;
         this.nivelClasificatoria = nivelClasificatoria;
         this.posicion = posicion;
         this.funcion = funcion;
-        this.estado = estado;
     }
 
     public String getNickname() {
@@ -34,11 +33,11 @@ public class Jugador extends Miembro {
         this.nickname = nickname;
     }
 
-    public int getNivelClasificatoria() {
+    public String getNivelClasificatoria() {
         return nivelClasificatoria;
     }
 
-    public void setNivelClasificatoria(int nivelClasificatoria) {
+    public void setNivelClasificatoria(String nivelClasificatoria) {
         this.nivelClasificatoria = nivelClasificatoria;
     }
 
@@ -90,17 +89,5 @@ public class Jugador extends Miembro {
         this.contraseña = contraseña;
     }
 
-    public boolean isEstado() {
-        return estado;
-    }
-
-    public void setEstado(boolean estado) {
-        this.estado = estado;
-    }
-
-    @Override
-    public String toString() {
-        return "Jugador{" + "nickname=" + nickname + ", nivelClasificatoria=" + nivelClasificatoria + ", posicion=" + posicion + ", funcion=" + funcion + ", estado=" + estado + '}';
-    }
-
+    
 }
