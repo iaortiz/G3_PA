@@ -54,14 +54,14 @@ public class ImportJugador {
         }
         return lista;
     }
-    
-        public Jugador Import_Jugador(String user) {
+
+    public Jugador Import_Jugador(String user) {
 
         ImportJugador ObjImportar = new ImportJugador();
         ArrayList<Jugador> list_Jugador = LeerJson();
 
         Jugador ObjJugador = new Jugador();
-        
+
         for (Jugador ObjJugadorAux : list_Jugador) {
             if (user.equals(ObjJugadorAux.getCedula())) {
                 ObjJugador = ObjJugadorAux;
@@ -72,5 +72,18 @@ public class ImportJugador {
             System.out.println(ObjJugador.toString());
         }
         return ObjJugador;
+    }
+
+    public int Import_Indice(String user) {
+
+        ImportJugador ObjImportar = new ImportJugador();
+        ArrayList<Jugador> list_Jugador = LeerJson();
+        int indice = -1;
+        for (int i = 0; i < list_Jugador.size(); i++) {
+            if (user.equals(list_Jugador.get(i).getCedula())) {
+                indice = i;
+            }
+        }
+        return indice;
     }
 }

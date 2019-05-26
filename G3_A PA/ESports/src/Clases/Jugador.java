@@ -12,6 +12,7 @@ public class Jugador extends Miembro {
     public String nivelClasificatoria;
     public String posicion;
     public int funcion;
+    public boolean estado;
     public ArrayList<Registro> registros = new ArrayList<>();
 
     public Jugador() {
@@ -23,6 +24,7 @@ public class Jugador extends Miembro {
         this.nivelClasificatoria = nivelClasificatoria;
         this.posicion = posicion;
         this.funcion = funcion;
+        this.estado = true;
     }
 
     public String getNickname() {
@@ -59,6 +61,14 @@ public class Jugador extends Miembro {
 
     public String getCedula() {
         return cedula;
+    }
+
+    public boolean getEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
     }
 
     public void setCedula(String cedula) {
