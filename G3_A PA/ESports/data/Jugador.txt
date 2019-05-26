@@ -1,1 +1,11 @@
+<<<<<<< HEAD
 ﻿{"nickname":"jucaco","nivelClasificatoria":"12","posicion":"TOP","funcion":1,"estado":false,"registros":[{"fecha":"May 24, 2019 12:36:17 PM","partidas":[{"muertes":12,"asistencias":12,"asesinatos":12,"farm":12},{"muertes":2,"asistencias":4,"asesinatos":4,"farm":2}]},{"fecha":"Jul 1, 3919 12:00:00 AM","partidas":[]},{"fecha":"Jul 2, 3919 12:00:00 AM","partidas":[{"muertes":2,"asistencias":6,"asesinatos":6,"farm":5}]}],"cedula":"1105137234","nombres":"Carlos","apellidos":"Juca","contraseña":"1234"}
+=======
+<<<<<<< HEAD
+{"nickname":"jucaco","nivelClasificatoria":12,"posicion":"TOP","funcion":1,"cedula":"1105137234","nombres":"Carlos ","apellidos":"Juca","contraseña":"gt7nvHmU"}
+{"nickname":"jucaco1","nivelClasificatoria":19,"posicion":"TOPES","funcion":1,"cedula":"1105137234","nombres":"Carlos ","apellidos":"Juca","contraseña":"gt7nvHmU"}
+{"nickname":"diosdelrock99","nivelClasificatoria":"Platino","posicion":"Top","funcion":1,"registros":[],"cedula":"1003168819","nombres":"gerson","apellidos":"santos","contraseña":"asd"}
+=======
+{"nickname":"jucaco","nivelClasificatoria":"12","posicion":"TOP","funcion":1,"registros":[],"cedula":"1105137234","nombres":"Carlos","apellidos":"Juca","contraseña":"gt7nvHmU"}
+>>>>>>> bc810e431f80b7d231b8000a5e92621b917a7882
+>>>>>>> ce2d198702d673f0a648d9b0578a7262436136cd
