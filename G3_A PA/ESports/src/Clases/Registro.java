@@ -17,4 +17,10 @@ public class Registro {
         this.fecha = fecha;
     }
 
+    @Override
+    public String toString() {
+        return "Registro{" + "fecha=" + fecha + ", partidas=" + partidas + '}';
+    }
+    
+
 }

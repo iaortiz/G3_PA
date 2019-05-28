@@ -10,6 +10,7 @@ import Clases.Jugador;
 import Clases.Partida;
 import Data.ImportJugador;
 import Logica.LogPartida;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -18,22 +19,21 @@ import Logica.LogPartida;
 public class RegistrarPartida extends javax.swing.JFrame {
 
     LogPartida ObjLogPartida = new LogPartida();
-    Partida ObPartida = new Partida();
+    Partida ObjPartida = new Partida();
 
     /**
      * Creates new form RegistrarPartida
+     *
      * @param ObjRegistro
      * @param ObjJugador
      */
-    public RegistrarPartida(Registro ObjRegistro, Jugador ObjJugador) {
+    public RegistrarPartida() {
+
+        ImportJugador ObjImportJugador = new ImportJugador();
+        Jugador ObjJugador = ObjImportJugador.Import_Jugador("1105137234");
+        Registro ObjRegistro = ObjJugador.registros.get(ObjJugador.registros.size() - 1);
+
         initComponents();
-        
-        this.jTextFieldCedula.setText(ObjJugador.getCedula());
-        this.jTextFieldNick.setText(ObjJugador.getNickname());
-        this.jTextFieldNombres.setText(ObjJugador.getNombres());
-        this.jTextFieldApellidos.setText(ObjJugador.getApellidos());
-        this.jTextFieldNivel.setText(ObjJugador.getNivelClasificatoria() + "");
-        this.jTextFieldFecha.setText(ObjRegistro.fecha.toString());
 
     }
 
@@ -67,6 +67,7 @@ public class RegistrarPartida extends javax.swing.JFrame {
         jTextFieldNivel = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jTextFieldCedula = new javax.swing.JTextField();
+        jButtonValidar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jTextFieldFecha = new javax.swing.JTextField();
@@ -166,6 +167,11 @@ public class RegistrarPartida extends javax.swing.JFrame {
         jLabel8.setText("Apellidos:");
 
         jTextFieldNick.setEnabled(false);
+        jTextFieldNick.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNickActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel9.setText("NickName:");
@@ -178,7 +184,29 @@ public class RegistrarPartida extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel11.setText("Cedula:");
 
-        jTextFieldCedula.setEnabled(false);
+        jTextFieldCedula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCedulaActionPerformed(evt);
+            }
+        });
+        jTextFieldCedula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldCedulaKeyReleased(evt);
+            }
+        });
+
+        jButtonValidar.setText("Validar");
+        jButtonValidar.setEnabled(false);
+        jButtonValidar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonValidarActionPerformed(evt);
+            }
+        });
+        jButtonValidar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jButtonValidarKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -207,7 +235,9 @@ public class RegistrarPartida extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextFieldCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextFieldCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonValidar)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -216,12 +246,13 @@ public class RegistrarPartida extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jTextFieldCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonValidar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
-                    .addComponent(jTextFieldNick, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
+                    .addComponent(jTextFieldNick, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(jLabel8)
@@ -237,7 +268,7 @@ public class RegistrarPartida extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Fecha"));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel6.setText("Fecha :");
+        jLabel6.setText("Ultima Asistencia Registrada :");
 
         jTextFieldFecha.setEnabled(false);
         jTextFieldFecha.addActionListener(new java.awt.event.ActionListener() {
@@ -253,9 +284,9 @@ public class RegistrarPartida extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTextFieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -295,8 +326,8 @@ public class RegistrarPartida extends javax.swing.JFrame {
                         .addGap(21, 21, 21)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(247, 247, 247)
                         .addComponent(jButton1)
@@ -350,25 +381,93 @@ public class RegistrarPartida extends javax.swing.JFrame {
         Jugador ObjJugador = new Jugador();
         String user = this.jTextFieldCedula.getText();
         ObjJugador = ObjImportJugador.Import_Jugador(user);
-        
+
         /// Importar desde el user que viene desde la oyra pagina
-        
         int muertes = Integer.parseInt(this.jTextFieldMuertes.getText());
         int asesinatos = Integer.parseInt(this.jTextFieldAsesinatos.getText());
         int asistencias = Integer.parseInt(this.jTextFieldAsesinatos.getText());
         int farm = Integer.parseInt(this.jTextFieldFarm.getText());
-        
-        ObPartida = ObjLogPartida.agregarPartida(muertes, asistencias, asesinatos, farm);
-        
+
+        ObjPartida = ObjLogPartida.CrearPartida(muertes, asistencias, asesinatos, farm);
+        ObjLogPartida.AgregarPartida(ObjPartida, ObjJugador);
+
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextFieldCedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCedulaActionPerformed
+
+    }//GEN-LAST:event_jTextFieldCedulaActionPerformed
+
+    private void jTextFieldCedulaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCedulaKeyReleased
+        this.jButtonValidar.setEnabled(this.jTextFieldCedula.getText().length() != 0);
+    }//GEN-LAST:event_jTextFieldCedulaKeyReleased
+
+    private void jButtonValidarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValidarActionPerformed
+        ImportJugador ObjImportJugador = new ImportJugador();
+        try {
+            Jugador ObjJugador = ObjImportJugador.Import_Jugador(this.jTextFieldCedula.getText());
+            Registro ObjRegistro = ObjJugador.registros.get(ObjJugador.registros.size() - 1);
+            this.jTextFieldCedula.setText(ObjJugador.getCedula());
+            this.jTextFieldNick.setText(ObjJugador.getNickname());
+            this.jTextFieldNombres.setText(ObjJugador.getNombres());
+            this.jTextFieldApellidos.setText(ObjJugador.getApellidos());
+            this.jTextFieldNivel.setText(ObjJugador.getNivelClasificatoria() + ""); 
+            SimpleDateFormat objSDF = new SimpleDateFormat("dd / MMM / yyyy");
+            this.jTextFieldFecha.setText(objSDF.format(ObjRegistro.fecha));
+        } catch (NullPointerException e) {
+
+        }
+
+
+    }//GEN-LAST:event_jButtonValidarActionPerformed
+
+    private void jButtonValidarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButtonValidarKeyReleased
+
+    }//GEN-LAST:event_jButtonValidarKeyReleased
+
+    private void jTextFieldNickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNickActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNickActionPerformed
 
     /**
      * @param args the command line arguments
      */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(RegistrarAsistencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(RegistrarAsistencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(RegistrarAsistencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(RegistrarAsistencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new RegistrarPartida().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonValidar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

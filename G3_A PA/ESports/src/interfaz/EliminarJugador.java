@@ -5,30 +5,23 @@
  */
 package interfaz;
 
-import Clases.Registro;
 import Clases.Jugador;
-import Data.ExpJugador;
 import Data.ImportJugador;
 import Logica.LogJugador;
-import Logica.LogRegistro;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author Carlos Juca
  */
-public class RegistrarAsistencia extends javax.swing.JFrame {
-
-    Registro ObjRegistro = new Registro();
-    LogRegistro ObjLogAsistencia = new LogRegistro();
-    LogRegistro ObjLogRegistro = new LogRegistro();
-
+public class EliminarJugador extends javax.swing.JFrame {
+    LogJugador objLogJugador = new LogJugador();
+    Jugador ObjJugador = new Jugador();
+    
     /**
-     * Creates new form RegistrarAistencia
+     * Creates new form EliminarJugador
      */
-    public RegistrarAsistencia() {
+    public EliminarJugador() {
         initComponents();
     }
 
@@ -62,7 +55,7 @@ public class RegistrarAsistencia extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
-        jLabel1.setText("Registro Asistencia");
+        jLabel1.setText("Eliminar Jugador");
         jLabel1.setName(""); // NOI18N
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Jugador"));
@@ -189,7 +182,7 @@ public class RegistrarAsistencia extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton1.setText("Confirmar");
+        jButton1.setText("Eliminar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -207,33 +200,34 @@ public class RegistrarAsistencia extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(177, 177, 177))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(168, 168, 168)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(207, 207, 207)
+                        .addGap(212, 212, 212)
                         .addComponent(jButton1)
-                        .addGap(29, 29, 29)
+                        .addGap(37, 37, 37)
                         .addComponent(jButton2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(4, 4, 4)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         pack();
@@ -251,7 +245,6 @@ public class RegistrarAsistencia extends javax.swing.JFrame {
 
         ImportJugador ObjImportJugador = new ImportJugador();
         String user = this.jTextFieldCedula.getText();
-        Jugador ObjJugador;
         try {
             ObjJugador = ObjImportJugador.Import_Jugador(user);
             this.jTextFieldNombres.setText(ObjJugador.getNombres());
@@ -271,24 +264,18 @@ public class RegistrarAsistencia extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNombresActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ImportJugador ObjImportJugador = new ImportJugador();
+        String user = this.jTextFieldCedula.getText();
+        ObjJugador = ObjImportJugador.Import_Jugador(user);
+        objLogJugador.eliminarJugador(ObjJugador);
+        objLogJugador.actualizarJugador(ObjJugador);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        ImportJugador ObjImportJugador = new ImportJugador();
-        String user = this.jTextFieldCedula.getText();
-        Jugador ObjJugador = ObjImportJugador.Import_Jugador(user);
-        Date fecha = new Date();
-        if (ObjLogRegistro.validarFecha(ObjJugador, fecha)) {
-            JOptionPane.showMessageDialog(null, "La Asistencia ya esta Registrada");
-        } else {
-            ObjRegistro = ObjLogAsistencia.crearRegistro(fecha);
-            ObjLogRegistro.AgregarRegistro(ObjRegistro, ObjJugador);
-            JOptionPane.showMessageDialog(null, "La Asistencia se Registro Correctamente");
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -307,21 +294,20 @@ public class RegistrarAsistencia extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegistrarAsistencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EliminarJugador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegistrarAsistencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EliminarJugador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegistrarAsistencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EliminarJugador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegistrarAsistencia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EliminarJugador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegistrarAsistencia().setVisible(true);
+                new EliminarJugador().setVisible(true);
             }
         });
     }
