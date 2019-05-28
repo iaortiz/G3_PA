@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-{"nickname":"jucaco","nivelClasificatoria":12,"posicion":"TOP","funcion":1,"cedula":"1105137234","nombres":"Carlos ","apellidos":"Juca","contraseña":"gt7nvHmU"}
-{"nickname":"jucaco1","nivelClasificatoria":19,"posicion":"TOPES","funcion":1,"cedula":"1105137234","nombres":"Carlos ","apellidos":"Juca","contraseña":"gt7nvHmU"}
-{"nickname":"diosdelrock99","nivelClasificatoria":"Platino","posicion":"Top","funcion":1,"registros":[],"cedula":"1003168819","nombres":"gerson","apellidos":"santos","contraseña":"asd"}
-=======
-{"nickname":"jucaco","nivelClasificatoria":"12","posicion":"TOP","funcion":1,"registros":[],"cedula":"1105137234","nombres":"Carlos","apellidos":"Juca","contraseña":"gt7nvHmU"}
->>>>>>> bc810e431f80b7d231b8000a5e92621b917a7882
+﻿{"nickname":"omega","nivelClasificatoria":"Bronce","posicion":"Top","funcion":1,"registros":[],"cedula":"1105666034","nombres":"David","apellidos":"Lopez","contraseña":"1234"}
+{"nickname":"","nivelClasificatoria":"Hierro","posicion":"Top","funcion":1,"registros":[],"cedula":"111","nombres":"","apellidos":"","contraseña":""}
