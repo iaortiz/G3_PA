@@ -16,6 +16,8 @@ public class Menu_admin extends javax.swing.JFrame {
      */
     public Menu_admin() {
         initComponents();
+        this.setLocationRelativeTo(null);
+
     }
 
     /**
@@ -28,9 +30,15 @@ public class Menu_admin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txt_editarJugador = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel3 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -44,45 +52,92 @@ public class Menu_admin extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jPanel2.setBackground(new java.awt.Color(25, 25, 25));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel3.setBackground(new java.awt.Color(242, 242, 242));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Big John PRO Light", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(25, 25, 25));
         jLabel1.setText("MENU");
+        jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 70, 30));
 
-        txt_editarJugador.setText("EDITAR JUGADOR");
+        txt_editarJugador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/iconocrearMesa de trabajo 1.png"))); // NOI18N
+        txt_editarJugador.setBorder(null);
+        txt_editarJugador.setBorderPainted(false);
+        txt_editarJugador.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txt_editarJugador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_editarJugadorActionPerformed(evt);
+            }
+        });
+        jPanel3.add(txt_editarJugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, -1, -1));
 
-        jButton1.setText("CAMBIAR ESTADO DEL JUGADOR");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/iconoeliminarMesa de trabajo 1.png"))); // NOI18N
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 150, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(129, 129, 129)
-                        .addComponent(txt_editarJugador))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(161, 161, 161)
-                        .addComponent(jLabel1)))
-                .addContainerGap(90, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addComponent(jLabel1)
-                .addGap(38, 38, 38)
-                .addComponent(txt_editarJugador)
-                .addGap(29, 29, 29)
-                .addComponent(jButton1)
-                .addContainerGap(130, Short.MAX_VALUE))
-        );
+        jLabel2.setBackground(new java.awt.Color(25, 25, 25));
+        jLabel2.setFont(new java.awt.Font("Big John PRO Light", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(25, 25, 25));
+        jLabel2.setText("Administrador");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
+        jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 350, 20));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/iconojaguar2.png"))); // NOI18N
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, -1));
+
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/cerrar.png"))); // NOI18N
+        jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 0, -1, -1));
+
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 430, 390));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 390));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void txt_editarJugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_editarJugadorActionPerformed
+        // TODO add your handling code here:
+        RegistroJugador ObjJugador = new RegistroJugador();
+        ObjJugador.setVisible(true);
+    }//GEN-LAST:event_txt_editarJugadorActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        EliminarJugador ObjJugadorEliminar = new EliminarJugador();
+        ObjJugadorEliminar.setVisible(true);
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -121,8 +176,14 @@ public class Menu_admin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton txt_editarJugador;
     // End of variables declaration//GEN-END:variables
 }

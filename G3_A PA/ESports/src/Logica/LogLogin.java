@@ -19,11 +19,7 @@ import javax.swing.JOptionPane;
  */
 public class LogLogin {
 
-<<<<<<< HEAD
     public Jugador IngresarJugador(String user, String pass, Login login) {
-=======
-    public void IngresarJugador(String user, String pass, Login login) {
->>>>>>> 900000280beb86a341cc901f1a7758e453ca67c2
 
         ImportJugador ObjImport = new ImportJugador();
         Jugador ObjJugador = ObjImport.Import_Jugador(user);
@@ -41,7 +37,7 @@ public class LogLogin {
 
             } else {
                 if (ObjJugador.getFuncion() == 2) {
-                    PantallaCoach ObjPantallaC = new PantallaCoach();
+                    PantallaCoach ObjPantallaC = new PantallaCoach(ObjJugador);
                     ObjPantallaC.setVisible(true);
                     login.setVisible(false);
                 }

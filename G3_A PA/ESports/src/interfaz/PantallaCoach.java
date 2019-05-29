@@ -16,12 +16,20 @@ public class PantallaCoach extends javax.swing.JFrame {
     /**
      * Creates new form PantallaCoach
      */
-    
     Jugador ObjJugador = new Jugador();
+
+    public PantallaCoach(Jugador jugador) {
+        initComponents();
+
+        this.setLocationRelativeTo(null);
+        this.ObjJugador = jugador;
+
+    }
 
     public PantallaCoach() {
         initComponents();
         this.setLocationRelativeTo(null);
+
     }
 
     /**
@@ -33,6 +41,7 @@ public class PantallaCoach extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -40,9 +49,8 @@ public class PantallaCoach extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jButton2 = new javax.swing.JButton();
         jButtonCerrar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
@@ -77,36 +85,22 @@ public class PantallaCoach extends javax.swing.JFrame {
         jLabel1.setText("MENÚ");
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, 30));
 
-        jRadioButton1.setBackground(new java.awt.Color(25, 25, 25));
-        jRadioButton1.setFont(new java.awt.Font("Big John PRO Light", 0, 18)); // NOI18N
-        jRadioButton1.setForeground(new java.awt.Color(25, 25, 25));
-        jRadioButton1.setText("Registrar asistencias");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, 20));
+        jComboBox1.setBackground(new java.awt.Color(25, 25, 25));
+        jComboBox1.setFont(new java.awt.Font("Big John PRO Light", 0, 14)); // NOI18N
+        jComboBox1.setForeground(new java.awt.Color(25, 25, 25));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Registrar Asistencias", "Crear Partida", "Presentar Equipo", "Registrar resultados" }));
+        jComboBox1.setBorder(null);
+        jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 190, -1));
 
-        jRadioButton2.setFont(new java.awt.Font("Big John PRO Light", 0, 18)); // NOI18N
-        jRadioButton2.setForeground(new java.awt.Color(25, 25, 25));
-        jRadioButton2.setText("Crear Partida");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/iconoMesa de trabajo 1.png"))); // NOI18N
+        jButton2.setBorder(null);
+        jButton2.setBorderPainted(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
-        jPanel3.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
-
-        jRadioButton3.setFont(new java.awt.Font("Big John PRO Light", 0, 18)); // NOI18N
-        jRadioButton3.setForeground(new java.awt.Color(25, 25, 25));
-        jRadioButton3.setText("Presentar Equipo");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, -1, -1));
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 220, 450));
 
@@ -148,18 +142,6 @@ public class PantallaCoach extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
-
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
-
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
-
     private void jButtonCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCerrarActionPerformed
         // TODO add your handling code here:
         this.dispose();
@@ -170,6 +152,27 @@ public class PantallaCoach extends javax.swing.JFrame {
         CambiarContraseña ObjContraseña = new CambiarContraseña(this.ObjJugador);
         ObjContraseña.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        if (this.jComboBox1.getSelectedIndex() == 0) {
+            RegistrarAsistencia ObjAsistencia = new RegistrarAsistencia();
+            ObjAsistencia.setVisible(true);
+        }
+        if (this.jComboBox1.getSelectedIndex() == 1) {
+            CrearPartida ObjPartida = new CrearPartida();
+            ObjPartida.setVisible(true);
+        }
+        if (this.jComboBox1.getSelectedIndex() == 2) {
+            EquipoIdeal ObjEquipo = new EquipoIdeal();
+            ObjEquipo.setVisible(true);
+        }
+        if (this.jComboBox1.getSelectedIndex() == 3) {
+            RegistrarPartida ObjResultados = new RegistrarPartida();
+            ObjResultados.setVisible(true);
+        }
+
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -185,16 +188,24 @@ public class PantallaCoach extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PantallaCoach.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaCoach.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PantallaCoach.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaCoach.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PantallaCoach.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaCoach.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PantallaCoach.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PantallaCoach.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -207,17 +218,17 @@ public class PantallaCoach extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonCerrar;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
