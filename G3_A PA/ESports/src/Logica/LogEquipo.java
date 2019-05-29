@@ -83,6 +83,9 @@ public class LogEquipo {
             for (Registro ObjRegistro : list_Registro) {
                 ArrayList<Partida> list_Partida = ObjRegistro.partidas;
                 for (Partida ObjPartida : list_Partida) {
+                    if (ObjPartida.getMuertes() == 0) {
+                        ObjPartida.setMuertes(1);
+                    }
                     indKDA += (ObjPartida.getAsesinatos() + ObjPartida.getAsistencias()) / ObjPartida.getMuertes();
                     ObjJugador.setIndKDA(Double.toString(indKDA));
                 }
@@ -113,34 +116,34 @@ public class LogEquipo {
             }
         }
         //////////////////////////////////////////////////////////////////////////////////////////////////
-        ArrayList<Jugador> dataPorTop = new ArrayList<>(); //Lista que contendrá los valores ya ordenados
-        dataPorTop.addAll(TOP); //Se agrega la información del ArrayList a la nueva lista
-        Collections.sort(dataPorTop, //Se procede a ordenar por cantones
+        ArrayList<Jugador> dataPorTop = new ArrayList<>();
+        dataPorTop.addAll(TOP); 
+        Collections.sort(dataPorTop, 
                 (o1, o2) -> o1.indKDA.compareTo(o2.indKDA));
         listJugador.add(TOP.get(0));
         //////////////////////////////////////////////////////////////////////////////////////////////////
-        ArrayList<Jugador> dataPorJg = new ArrayList<>(); //Lista que contendrá los valores ya ordenados
-        dataPorJg.addAll(JG); //Se agrega la información del ArrayList a la nueva lista
-        Collections.sort(dataPorJg, //Se procede a ordenar por cantones
+        ArrayList<Jugador> dataPorJg = new ArrayList<>(); 
+        dataPorJg.addAll(JG); 
+        Collections.sort(dataPorJg, 
                 (o1, o2) -> o1.indKDA.compareTo(o2.indKDA));
 
         listJugador.add(JG.get(0));
         //////////////////////////////////////////////////////////////////////////////////////////////////
-        ArrayList<Jugador> dataPorMid = new ArrayList<>(); //Lista que contendrá los valores ya ordenados
-        dataPorMid.addAll(MID); //Se agrega la información del ArrayList a la nueva lista
-        Collections.sort(dataPorMid, //Se procede a ordenar por cantones
+        ArrayList<Jugador> dataPorMid = new ArrayList<>(); 
+        dataPorMid.addAll(MID); 
+        Collections.sort(dataPorMid, 
                 (o1, o2) -> o1.indKDA.compareTo(o2.indKDA));
         listJugador.add(MID.get(0));
         //////////////////////////////////////////////////////////////////////////////////////////////////
-        ArrayList<Jugador> dataPorAdc = new ArrayList<>(); //Lista que contendrá los valores ya ordenados
-        dataPorAdc.addAll(ADC); //Se agrega la información del ArrayList a la nueva lista
-        Collections.sort(dataPorAdc, //Se procede a ordenar por cantones
+        ArrayList<Jugador> dataPorAdc = new ArrayList<>(); 
+        dataPorAdc.addAll(ADC); 
+        Collections.sort(dataPorAdc, 
                 (o1, o2) -> o1.indKDA.compareTo(o2.indKDA));
         listJugador.add(ADC.get(0));
         //////////////////////////////////////////////////////////////////////////////////////////////////
-        ArrayList<Jugador> dataPorSupp = new ArrayList<>(); //Lista que contendrá los valores ya ordenados
-        dataPorSupp.addAll(SUP); //Se agrega la información del ArrayList a la nueva lista
-        Collections.sort(dataPorSupp, //Se procede a ordenar por cantones
+        ArrayList<Jugador> dataPorSupp = new ArrayList<>(); 
+        dataPorSupp.addAll(SUP); 
+        Collections.sort(dataPorSupp, 
                 (o1, o2) -> o1.indKDA.compareTo(o2.indKDA));
         listJugador.add(SUP.get(0));
         //////////////////////////////////////////////////////////////////////////////////////////////////        

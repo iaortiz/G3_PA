@@ -10,8 +10,8 @@ import Clases.Jugador;
 import Data.ExpEquipo;
 import Logica.LogEquipo;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import sun.rmi.runtime.Log;
 
 /**
  *
@@ -161,6 +161,7 @@ public class EquipoIdeal extends javax.swing.JFrame {
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
         ObjEquipo = ObjLogEquipo.Crear(this.jTextFieldNnombreEquipo.getText(), list_Jugadores);
         ObjExpEquipo.Crear(ObjEquipo);
+        JOptionPane.showMessageDialog(this, "Equipo creado con éxito");
 
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 

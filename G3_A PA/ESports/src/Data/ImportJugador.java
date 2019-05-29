@@ -58,7 +58,7 @@ public class ImportJugador {
     public Jugador Import_Jugador(String user) {
 
         ImportJugador ObjImportar = new ImportJugador();
-        ArrayList<Jugador> list_Jugador = LeerJson();
+        ArrayList<Jugador> list_Jugador = ObjImportar.LeerJson();
 
         Jugador ObjJugador = new Jugador();
 
