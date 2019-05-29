@@ -8,6 +8,7 @@ package interfaz;
 import Clases.Jugador;
 import Logica.LogExportar;
 import Logica.LogJugador;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -196,6 +197,7 @@ public class RegistroJugador extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(255, 0, 0));
         jLabel11.setText("* Las contraseñas no coinciden");
 
+        jPasswordFieldConfirmar.setEnabled(false);
         jPasswordFieldConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordFieldConfirmarActionPerformed(evt);
@@ -209,6 +211,7 @@ public class RegistroJugador extends javax.swing.JFrame {
 
         jComboBoxNivel.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
         jComboBoxNivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hierro", "Bronce", "Plata", "Oro", "Platino", "Diamante", "Maestro", "Gran Maestro", "Retador" }));
+        jComboBoxNivel.setEnabled(false);
         jComboBoxNivel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxNivelActionPerformed(evt);
@@ -217,6 +220,7 @@ public class RegistroJugador extends javax.swing.JFrame {
 
         jComboBoxPosicion.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
         jComboBoxPosicion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Top", "Jungla", "Mid", "ADCarry", "Support" }));
+        jComboBoxPosicion.setEnabled(false);
         jComboBoxPosicion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxPosicionActionPerformed(evt);
@@ -298,29 +302,29 @@ public class RegistroJugador extends javax.swing.JFrame {
                             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(194, 194, 194)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(246, 246, 246)
+                        .addGap(280, 280, 280)
                         .addComponent(jButton1)
                         .addGap(26, 26, 26)
-                        .addComponent(jButton2)))
+                        .addComponent(jButton2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(236, 236, 236)
+                        .addComponent(jLabel1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(8, 8, 8)
                 .addComponent(jLabel1)
-                .addGap(20, 20, 20)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -336,13 +340,22 @@ public class RegistroJugador extends javax.swing.JFrame {
 
     private void jButtonValidarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValidarActionPerformed
 
-        this.jTextFieldApellidos.setEnabled(true);
-        this.jPasswordFieldConfirmar.setEnabled(true);
-        this.jTextFieldContraseña.setEnabled(true);
-        this.jTextFieldNick.setEnabled(true);
-        this.jComboBoxNivel.setEnabled(true);
-        this.jComboBoxPosicion.setEnabled(true);
-        this.jTextFieldNombres.setEnabled(true);
+        if (ObjLogJugador.validadorDeCedula(this.jTextFieldCedula.getText())) {
+            this.jTextFieldApellidos.setEnabled(true);
+            this.jPasswordFieldConfirmar.setEnabled(true);
+            this.jTextFieldContraseña.setEnabled(true);
+            this.jTextFieldNick.setEnabled(true);
+            this.jComboBoxNivel.setEnabled(true);
+            this.jComboBoxPosicion.setEnabled(true);
+            this.jTextFieldNombres.setEnabled(true);
+            this.jComboBoxNivel.setEnabled(true);
+            this.jComboBoxPosicion.setEnabled(true);
+            this.jPasswordFieldConfirmar.setEnabled(true);
+        }else{
+            JOptionPane.showMessageDialog(null, "La Cédula no es Correcta", "",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+
     }//GEN-LAST:event_jButtonValidarActionPerformed
 
     private void jTextFieldNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombresActionPerformed
@@ -364,7 +377,7 @@ public class RegistroJugador extends javax.swing.JFrame {
         String contraseña = this.jTextFieldContraseña.getText();
         ObjJugador = ObjLogJugador.CrearJugador(nickname, nivelClasificatoria, posicion, 1, cedula, nombres, apellidos, contraseña);
         ObjLogExportar.CrearJugador(ObjJugador);
-        
+
         // Limpiar JTEXT
         this.jTextFieldNick.setText("");
         this.jTextFieldCedula.setText("");
@@ -397,9 +410,9 @@ public class RegistroJugador extends javax.swing.JFrame {
     private void jPasswordFieldConfirmarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldConfirmarKeyReleased
         char[] clave = this.jPasswordFieldConfirmar.getPassword();
         String pass = new String(clave);
-        if(this.jTextFieldContraseña.getText().equals(pass)){
+        if (this.jTextFieldContraseña.getText().equals(pass)) {
             this.jLabel11.setVisible(false);
-        }else{
+        } else {
             this.jLabel11.setVisible(true);
         }
     }//GEN-LAST:event_jPasswordFieldConfirmarKeyReleased

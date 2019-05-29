@@ -8,12 +8,12 @@ import java.util.*;
 public class Equipo {
 
     public String nombre;
-    public Jugador jugadores;
+    public ArrayList<Jugador> jugadores;
 
     public Equipo() {
     }
 
-    public Equipo(String nombre, Jugador jugadores) {
+    public Equipo(String nombre, ArrayList<Jugador> jugadores) {
         this.nombre = nombre;
         this.jugadores = jugadores;
     }

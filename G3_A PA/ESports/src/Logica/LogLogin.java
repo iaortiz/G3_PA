@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
 public class LogLogin {
 
     public void IngresarJugador(String user, String pass, Login login) {
-        
+
         ImportJugador ObjImport = new ImportJugador();
         Jugador ObjJugador = ObjImport.Import_Jugador(user);
 
@@ -38,5 +38,7 @@ public class LogLogin {
                     JOptionPane.ERROR_MESSAGE);
         }
     }
+
+  
 
 }
