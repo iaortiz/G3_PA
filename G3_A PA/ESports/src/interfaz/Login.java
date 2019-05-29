@@ -5,6 +5,7 @@
  */
 package interfaz;
 
+import Clases.Jugador;
 import Clases.Miembro;
 import Logica.LogLogin;
 import java.util.Arrays;
@@ -18,9 +19,14 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    
+    
+    Jugador ObjJugador = new Jugador();
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
+       
     }
 
     /**
@@ -85,7 +91,12 @@ public class Login extends javax.swing.JFrame {
         jTextFieldUser.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
         jTextFieldUser.setForeground(new java.awt.Color(242, 242, 242));
         jTextFieldUser.setBorder(null);
-        jPanel2.add(jTextFieldUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 480, 160, 23));
+        jTextFieldUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldUserActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jTextFieldUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 473, 160, 20));
 
         jButtonIngresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/entrar.png"))); // NOI18N
         jButtonIngresar.setToolTipText("");
@@ -116,11 +127,11 @@ public class Login extends javax.swing.JFrame {
         jSeparator3.setBackground(new java.awt.Color(242, 242, 242));
         jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 640, 220, 10));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/user.png"))); // NOI18N
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, -1, -1));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/user2.png"))); // NOI18N
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 460, -1, -1));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/password_white.png"))); // NOI18N
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 600, -1, -1));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/llave.png"))); // NOI18N
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 600, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/cerrar.png"))); // NOI18N
         jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -150,15 +161,19 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void jButtonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarActionPerformed
-        
+
         Miembro ObjMiembro = new Miembro();
-        
+
         String user = jTextFieldUser.getText();
         char clave[] = jPasswordField1.getPassword();
         String pass = new String(clave);
 
         LogLogin ObjLogLogin = new LogLogin();
-        ObjLogLogin.IngresarJugador(user, pass,this);
+        
+        ObjJugador = ObjLogLogin.IngresarJugador(user, pass, this);
+        
+        
+
     }//GEN-LAST:event_jButtonIngresarActionPerformed
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
@@ -169,6 +184,10 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_jLabel7MouseClicked
+
+    private void jTextFieldUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldUserActionPerformed
 
     /**
      * @param args the command line arguments

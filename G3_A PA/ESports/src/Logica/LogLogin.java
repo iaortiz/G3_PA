@@ -8,6 +8,8 @@ package Logica;
 import Clases.Jugador;
 import Data.ImportJugador;
 import interfaz.Login;
+import interfaz.PantallaCoach;
+import interfaz.PantallaJugador;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -17,8 +19,8 @@ import javax.swing.JOptionPane;
  */
 public class LogLogin {
 
-    public void IngresarJugador(String user, String pass, Login login) {
-        
+    public Jugador IngresarJugador(String user, String pass, Login login) {
+
         ImportJugador ObjImport = new ImportJugador();
         Jugador ObjJugador = ObjImport.Import_Jugador(user);
 
@@ -27,16 +29,29 @@ public class LogLogin {
             JOptionPane.showMessageDialog(null, "Bienvenido\n"
                     + "Acceso Correcto", "",
                     JOptionPane.INFORMATION_MESSAGE);
-//            
-//            
-//            SIGUIENTE FORMULARIO
-//                    
-//       
+
+            if (ObjJugador.getFuncion() == 1) {
+                PantallaJugador ObjPantallaJ = new PantallaJugador(ObjJugador);
+                ObjPantallaJ.setVisible(true);
+                login.setVisible(false);
+
+            } else {
+                if (ObjJugador.getFuncion() == 2) {
+                    PantallaCoach ObjPantallaC = new PantallaCoach();
+                    ObjPantallaC.setVisible(true);
+                    login.setVisible(false);
+                }
+
+            }
+
         } else {
 
             JOptionPane.showMessageDialog(null, "Por favor ingrese un usuario y/o contraseña correctos", "",
                     JOptionPane.ERROR_MESSAGE);
         }
+
+        return ObjJugador;
+
     }
 
 }
