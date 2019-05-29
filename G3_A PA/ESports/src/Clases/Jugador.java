@@ -13,6 +13,7 @@ public class Jugador extends Miembro {
     public String posicion;
     public int funcion;
     public boolean estado;
+    public String indKDA;
     public ArrayList<Registro> registros = new ArrayList<>();
 
     public Jugador() {
@@ -99,10 +100,27 @@ public class Jugador extends Miembro {
         this.contraseña = contraseña;
     }
 
+    public String getIndKDA() {
+        return indKDA;
+    }
+
+    public void setIndKDA(String indKDA) {
+        this.indKDA = indKDA;
+    }
+
+    public Jugador(String nickname, String nivelClasificatoria, String posicion, int funcion, boolean estado, String indKDA) {
+        this.nickname = nickname;
+        this.nivelClasificatoria = nivelClasificatoria;
+        this.posicion = posicion;
+        this.funcion = funcion;
+        this.estado = estado;
+        this.indKDA = indKDA;
+    }
+
     @Override
     public String toString() {
-        return "Jugador{" + "nickname=" + nickname + ", nivelClasificatoria=" + nivelClasificatoria + ", posicion=" + posicion + ", funcion=" + funcion + ", registros=" + registros + '}';
+        return "Jugador{" + "nickname=" + nickname + ", nivelClasificatoria=" + nivelClasificatoria + ", posicion=" + posicion + ", funcion=" + funcion + ", estado=" + estado + ", indKDA=" + indKDA + ", registros=" + registros + '}';
     }
-    
+
     
 }

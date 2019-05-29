@@ -19,7 +19,11 @@ import javax.swing.JOptionPane;
  */
 public class LogLogin {
 
+<<<<<<< HEAD
     public Jugador IngresarJugador(String user, String pass, Login login) {
+=======
+    public void IngresarJugador(String user, String pass, Login login) {
+>>>>>>> 900000280beb86a341cc901f1a7758e453ca67c2
 
         ImportJugador ObjImport = new ImportJugador();
         Jugador ObjJugador = ObjImport.Import_Jugador(user);
@@ -53,5 +57,7 @@ public class LogLogin {
         return ObjJugador;
 
     }
+
+  
 
 }

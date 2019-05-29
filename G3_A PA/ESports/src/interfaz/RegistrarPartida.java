@@ -30,9 +30,6 @@ public class RegistrarPartida extends javax.swing.JFrame {
     public RegistrarPartida() {
 
         ImportJugador ObjImportJugador = new ImportJugador();
-        Jugador ObjJugador = ObjImportJugador.Import_Jugador("1105137234");
-        Registro ObjRegistro = ObjJugador.registros.get(ObjJugador.registros.size() - 1);
-
         initComponents();
 
     }
@@ -382,6 +379,7 @@ public class RegistrarPartida extends javax.swing.JFrame {
         String user = this.jTextFieldCedula.getText();
         ObjJugador = ObjImportJugador.Import_Jugador(user);
 
+        Registro ObjRegistro = ObjJugador.registros.get(ObjJugador.registros.size() - 1);
         /// Importar desde el user que viene desde la oyra pagina
         int muertes = Integer.parseInt(this.jTextFieldMuertes.getText());
         int asesinatos = Integer.parseInt(this.jTextFieldAsesinatos.getText());
@@ -410,7 +408,7 @@ public class RegistrarPartida extends javax.swing.JFrame {
             this.jTextFieldNick.setText(ObjJugador.getNickname());
             this.jTextFieldNombres.setText(ObjJugador.getNombres());
             this.jTextFieldApellidos.setText(ObjJugador.getApellidos());
-            this.jTextFieldNivel.setText(ObjJugador.getNivelClasificatoria() + ""); 
+            this.jTextFieldNivel.setText(ObjJugador.getNivelClasificatoria() + "");
             SimpleDateFormat objSDF = new SimpleDateFormat("dd / MMM / yyyy");
             this.jTextFieldFecha.setText(objSDF.format(ObjRegistro.fecha));
         } catch (NullPointerException e) {
